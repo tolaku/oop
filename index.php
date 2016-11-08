@@ -10,7 +10,8 @@ if(isset($_GET['id'])){
 else{
 	// обращаемся к объекту Page в файле Page.php для вывода всех статей
 	$text = $page->get_all();
-	print_r($text);
+	// выводим массив в html код, вызывая нашу функцию get_body(), укажем массив и второй параметр шаблон для вывода
+	$page->get_body($text, 'main');
 }
 
  ?>
