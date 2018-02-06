@@ -1,17 +1,20 @@
 <?php 
-include 'config.php';
-include 'classes/Page.php';
-include 'classes/Database.php';
+class User {
+	// объявим свойство
+	public $name;
 
-$page = new Page();
-if(isset($_GET['id'])){
-	// выводим полностью информации о статье
+	public function __construct($name){
+		$this->name = $name;
+	}
 }
-else{
-	// обращаемся к объекту Page в файле Page.php для вывода всех статей
-	$text = $page->get_all();
-	// выводим массив в html код, вызывая нашу функцию get_body(), укажем массив и второй параметр шаблон для вывода
-	$page->get_body($text, 'main');
-}
+
+$user = new User('Viktor');
+
+echo $user->name;
+$user2 = $user;
+$user2->name = 'New STR';
+echo $user->name;
+
+//13:00
 
  ?>
