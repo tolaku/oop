@@ -1,20 +1,44 @@
 <?php 
-function __autoload($var){
-	include 'classes/'.$var.'.php';
+class User {
+/*	public $name;
+	public $password;
+	public $email;
+	public $city;*/
+	private static $name;
+
+	public static function setName($name1){
+		self::$name = $name1;
+	}
+
+	public static function getName(){
+		return self::$name;
+	}
+
 }
 
-$user = new Customer('Viktor');  // объект
+User::setName('Анатолий');
+echo User::getName();
 
-if($user instanceof Customer){
-	echo 'klass user is Customer';
+
+
+/*
+	function __construct($name,$password,$email,$city){
+		$this->name = $name;
+		$this->password = $password;
+		$this->email = $email;
+		$this->city = $city;
+	}
+
+	function getInfo(){
+		return "{$this->name} "."{$this->password} "."{$this->email} "."{$this->city} ";
+	}
 }
 
-echo $user->name;
-$user2 = clone $user;
+$user1 = new User("Анатолий","123","tola_k@mail.ru","Пинск");
+echo $user1->getInfo();*/
 
-echo $user->name;
-echo $user2->name;
 
-//53:00
+// https://www.youtube.com/watch?v=xc6hy-utZcQ&list=PLVfMKQXDAhGV1kj1gEGTgdzXt2jHwg-if&index=6
 
  ?>
+
