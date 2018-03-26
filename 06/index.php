@@ -25,26 +25,48 @@ class User {
 $user1 = new User("Анатолий ", "654654 ", "@mail.ru ", "Пинск");
 //echo $user1->getInfo();
 
-Class Moderator extends User{
+//Class Moderator extends User{
+//    protected $info;
+//    public $right;
+//    
+//    function __construct($name, $password, $email, $city, $info, $right) {
+//        parent::__construct($name, $password, $email, $city);
+//        $this->info = $info;
+//        $this->right = $right;
+//    }
+//    
+//    function getInfo() {
+//        $information = parent::getInfo();
+//        $information .= "{$this->info}" . "{$this->right}";
+//        
+//        return $information;
+//    }
+//}
+//
+//$moderator = new Moderator(" Андрей ", "111111 ", "tut@mail.ru ", "Стытычево ", "Модератор ", "Тру");
+//echo $moderator->getInfo();
+
+class Moderator extends User{
     protected $info;
-    public $right;
+    public $rights;
     
-    function __construct($name, $password, $email, $city, $info, $right) {
+    function __construct($name, $password, $email, $city, $info, $rights) {
         parent::__construct($name, $password, $email, $city);
-        $this->info = $info;
-        $this->right = $right;
+        $this->info = $name;
+        $this->rights = $rights;
     }
     
     function getInfo() {
         $information = parent::getInfo();
-        $information .= "{$this->info}" . "{$this->right}";
-        
+        $information .= "{$this->info}" . "{$this->rights}";
         return $information;
     }
 }
 
-$moderator = new Moderator(" Андрей ", "111111 ", "tut@mail.ru ", "Стытычево ", "Модератор ", "Тру");
+$moderator = new Moderator('Евдокия', '55555', 'evdokia@mail.ru', 'Минск', 'Модератор', 'Доступно');
 echo $moderator->getInfo();
+
+
 
 //class Test {
 //    protected $info;
